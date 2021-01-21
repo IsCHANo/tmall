@@ -1,0 +1,39 @@
+<div th:fragment="html" xmlns:th="http://www.w3.org/1999/xhtml">
+    <img src="img/site/catear.png" id="catear" class="catear"/>
+
+    <div class="categoryWithCarousel" style="width: 1300px; height: 529px">
+
+        <div class="headbar show1" style="background-color: white; margin-left: 80px">
+            <div class="head" style="padding-left: 10px">
+
+                <span style="margin-left:10px" class="glyphicon glyphicon-th-list"></span>
+                <span style="margin-left:10px" >商品分类</span>
+
+            </div>
+
+            <div class="rightMenu">
+                <span><a href=""><img src="img/site/cs.png"/></a></span>
+                <span><a href=""><img src="img/site/gj.png"/></a></span>
+
+                <span v-for="c,index in categories" v-if='index<=5'>
+                        <a style="color: #0f0f0f;" :href="'category?cid='+c.id">{{c.name}}</a>
+                </span>
+            </div>
+
+        </div>
+
+        <div style="position: relative; left: 80px;">
+            <div th:replace="include/fore/home/categoryMenu::html" ></div>
+        </div>
+
+        <div style="position: relative;left: 80px;top: 0;">
+            <div th:replace="include/fore/home/productsAsideCategorys::html" ></div>
+        </div>
+
+        <div th:replace="include/fore/home/carousel::html"></div>
+
+        <div class="carouselBackgroundDiv">
+        </div>
+
+    </div>
+</div>
